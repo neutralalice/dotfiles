@@ -35,6 +35,7 @@ export PATH="/home/arita/scripts:$PATH"
 export XDG_CONFIG_HOME="$HOME/.config"
 
 fpath+=${ZDOTDIR:-~}/.zsh_functions # path for alacritty
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # End of lines set by arita
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
