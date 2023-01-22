@@ -5,7 +5,9 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
+if [ `tput colors` = "256" ]; then
+	source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
+fi
 
 # The following lines were added by compinstall
 zstyle :compinstall filename '/home/arita/.zshrc'
@@ -25,17 +27,20 @@ alias cat="bat"
 alias ls="exa"
 alias vim="nvim"
 alias vi="nvim"
+alias http="xh"
 export EDITOR="nvim"
 export NNN_BMS='d:/home/arita/documents/;h:/home/arita/;D:/home/arita/downloads'
 export NNN_SSHFS="sshfs -o follow_symlinks"        # make sshfs follow symlinks on the remote
 export NNN_COLORS="2136"                           # use a different color for each context
 export NNN_TRASH="0"                                 # trash (needs trash-cli) instead of delete
 export NNN_PLUG='f:finder;o:fzopen;p:mocq;d:diffs;t:nmount;v:imgview'
-export PATH="/home/arita/scripts:$PATH"
+export PATH="/home/arita/git/scripts:$PATH"
 export XDG_CONFIG_HOME="$HOME/.config"
 
 fpath+=${ZDOTDIR:-~}/.zsh_functions # path for alacritty
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/fzf/key-bindings.zsh
+source /usr/share/fzf/completion.zsh
 # End of lines set by arita
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
