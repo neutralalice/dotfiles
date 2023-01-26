@@ -1,0 +1,8 @@
+xf86monbrightnessup
+	xbacklight -inc 10
+
+xf86monbrightnessdown
+	xbacklight -dec 10
+
+print
+	librewolf

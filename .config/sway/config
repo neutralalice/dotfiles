@@ -1,0 +1,139 @@
+### Variables
+set $mod Mod4
+set $left h
+set $down j
+set $up k
+set $right l
+set $term alacritty
+set $menu bemenu-run | xargs swaymsg exec --
+set $refresh_i3status killall -SIGUSR1 i3status
+
+### Output configuration
+output * bg $HOME/pictures/wallpapers/bridget.png fill
+
+### Window configuration
+gaps inner 8
+smart_gaps on
+default_border none
+
+### Idle configuration
+#
+# Example configuration:
+#
+# exec swayidle -w \
+#          timeout 300 'swaylock -f -c 000000' \
+#          timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+#          before-sleep 'swaylock -f -c 000000'
+#
+# This will lock your screen after 300 seconds of inactivity, then turn off
+# your displays after another 300 seconds, and turn your screens back on when
+# resumed. It will also lock your screen before your computer goes to sleep.
+
+### Basic Bindings
+    bindsym $mod+Return exec $term
+    bindsym $mod+Shift+q kill
+    bindsym $mod+d exec $menu
+    floating_modifier $mod normal
+    bindsym $mod+Shift+c reload
+    bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+
+### window bindings
+    bindsym $mod+$left focus left
+    bindsym $mod+$down focus down
+    bindsym $mod+$up focus up
+    bindsym $mod+$right focus right
+    bindsym $mod+Left focus left
+    bindsym $mod+Down focus down
+    bindsym $mod+Up focus up
+    bindsym $mod+Right focus right
+    bindsym $mod+Shift+$left move left
+    bindsym $mod+Shift+$down move down
+    bindsym $mod+Shift+$up move up
+    bindsym $mod+Shift+$right move right
+    bindsym $mod+Shift+Left move left
+    bindsym $mod+Shift+Down move down
+    bindsym $mod+Shift+Up move up
+    bindsym $mod+Shift+Right move right
+
+### workspace bindings
+    bindsym $mod+1 workspace 一
+    bindsym $mod+2 workspace 二
+    bindsym $mod+3 workspace 三
+    bindsym $mod+4 workspace 四
+    bindsym $mod+5 workspace 五
+    bindsym $mod+6 workspace 六
+    bindsym $mod+7 workspace 七
+    bindsym $mod+8 workspace 八
+    bindsym $mod+9 workspace 九
+    bindsym $mod+0 workspace 十
+    bindsym $mod+Shift+1 move container to workspace 一
+    bindsym $mod+Shift+2 move container to workspace 二
+    bindsym $mod+Shift+3 move container to workspace 三
+    bindsym $mod+Shift+4 move container to workspace 四
+    bindsym $mod+Shift+5 move container to workspace 五
+    bindsym $mod+Shift+6 move container to workspace 六
+    bindsym $mod+Shift+7 move container to workspace 七
+    bindsym $mod+Shift+8 move container to workspace 八
+    bindsym $mod+Shift+9 move container to workspace 九
+    bindsym $mod+Shift+0 move container to workspace 十
+
+### layout bindings
+    bindsym $mod+b splith
+    bindsym $mod+v splitv
+    bindsym $mod+s layout stacking
+    bindsym $mod+w layout tabbed
+    bindsym $mod+e layout toggle split
+    bindsym $mod+f fullscreen
+    bindsym $mod+Shift+space floating toggle
+    bindsym $mod+space focus mode_toggle
+    bindsym $mod+a focus parent
+
+### Scratchpad bindings
+    bindsym $mod+Shift+minus move scratchpad
+    bindsym $mod+minus scratchpad show
+
+### Resize bindings
+    bindsym $mod+r mode "resize"
+mode "resize" {
+    bindsym $left resize shrink width 10px
+    bindsym $down resize grow height 10px
+    bindsym $up resize shrink height 10px
+    bindsym $right resize grow width 10px
+    bindsym Left resize shrink width 10px
+    bindsym Down resize grow height 10px
+    bindsym Up resize shrink height 10px
+    bindsym Right resize grow width 10px
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+### T480 custom key bindings
+    bindsym --locked XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+    bindsym --locked XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+    bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+    bindsym --locked XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
+#    bindsym --locked XF86MonBrightnessUp exec xbacklight -inc 5
+#    bindsym --locked XF86MonBrightnessDown exec xbacklight -dec 5
+#    bindsym XF86Display exec zoom
+#    bindsym XF86Tools exec Joplin
+    bindsym XF86Bluetooth exec keepassxc
+    bindsym XF86Keyboard exec nm-connection-editor
+    bindsym XF86Favorites exec librewolf
+    bindsym XF86Launch2 exec inkscape
+
+### Status Bar
+bar {
+    position top
+    status_command i3status
+    colors {
+        statusline #ffffff
+        background #323232
+        inactive_workspace #32323200 #32323200 #5c5c5c
+    }
+}
+
+### executables
+# exec wl-paste -t text --watch clipman store --no-persist
+exec dunst
+### includes
+include /etc/sway/config.d/*
