@@ -108,14 +108,14 @@ mode "resize" {
 }
 
 ### T480 custom key bindings
-    bindsym --locked XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
-    bindsym --locked XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
-    bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+#    bindsym --locked XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+#    bindsym --locked XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+#    bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
     bindsym --locked XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
-#    bindsym --locked XF86MonBrightnessUp exec xbacklight -inc 5
-#    bindsym --locked XF86MonBrightnessDown exec xbacklight -dec 5
-#    bindsym XF86Display exec zoom
-#    bindsym XF86Tools exec Joplin
+    bindsym --locked XF86MonBrightnessUp exec xbacklight -inc 5
+    bindsym --locked XF86MonBrightnessDown exec xbacklight -dec 5
+    bindsym XF86Display exec zoom
+    bindsym XF86Tools exec Joplin
     bindsym XF86Bluetooth exec keepassxc
     bindsym XF86Keyboard exec nm-connection-editor
     bindsym XF86Favorites exec librewolf
