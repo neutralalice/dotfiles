@@ -9,19 +9,14 @@ if [ `tput colors` = "256" ]; then
 	source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 fi
 
-# BEGIN The following lines were added by compinstall
-zstyle :compinstall filename '/home/arita/.zshrc'
-
+zstyle :compinstall filename '/home/arita/.config/zsh/.zshrc'
+zstyle ':completion:*' cache-path $XDG_CACHE_HOME/zsh/zcompcache
 autoload -Uz compinit
-compinit
-# END of lines added by compinstall
+compinit -d $XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION
 
-# BEGIN Lines configured by zsh-newuser-install
-HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=10000
 bindkey -v
-# END of lines configured by zsh-newuser-install
 
 # BEGIN Lines configured by arita
 alias cat="bat"

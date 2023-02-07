@@ -1,9 +1,8 @@
 xf86audiomute
-	pactl set-sink-mute  @DEFAULT_SINK@ toggle
+	pactl set-sink-mute @DEFAULT_SINK@ toggle
 
 xf86audiolowervolume
-	pactl set-sink-volume @DEFAULT_SINK@ -5%
+	/home/arita/.local/bin/dunstvol.sh set-sink-volume @DEFAULT_SINK@ -5%
 
 xf86audioraisevolume
-	pactl set-sink-volume @DEFAULT_SINK@ +5%
-
+	/home/arita/.local/bin/dunstvol.sh set-sink-volume @DEFAULT_SINK@ +5%
