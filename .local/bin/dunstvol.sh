@@ -35,4 +35,4 @@ newvolume="$(pactl get-sink-volume @DEFAULT_SINK@ | awk '{print $5}' | grep -Eo 
 
 [[ $newvolume == 0 ]] && mute
 
-dunstify -a "Volume" -u low -i audio-volume-high -h string:x-dunst-stack-tag:$msgTag -h int:value:"$newvolume" "Vol:"
+dunstify -a "Volume" -u low -h string:x-dunst-stack-tag:$msgTag -h int:value:"$newvolume" "Vol:"

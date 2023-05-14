@@ -18,20 +18,7 @@ HISTSIZE=1000
 SAVEHIST=10000
 bindkey -v
 
-# BEGIN Lines configured by arita
-alias cat="bat"
-alias ls="exa"
-alias vim="nvim"
-alias vi="nvim"
-alias http="xh"
-
-fpath+=${ZDOTDIR:-~}/.zsh_functions # path for alacritty
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /usr/share/fzf/key-bindings.zsh
-source /usr/share/fzf/completion.zsh
-# END of lines set by arita
-
-# BEGIN Lines from Zsh Archwiki to configure certain keybinds which don't natively work on zsh
+## BEGIN Lines from Zsh Archwiki to configure certain keybinds which don't natively work on zsh
 # create a zkbd compatible hash;
 # to add other keys to this hash, see: man 5 terminfo
 typeset -g -A key
@@ -85,7 +72,20 @@ key[Control-Right]="${terminfo[kRIT5]}"
 
 [[ -n "${key[Control-Left]}"  ]] && bindkey -- "${key[Control-Left]}"  backward-word
 [[ -n "${key[Control-Right]}" ]] && bindkey -- "${key[Control-Right]}" forward-word
-# END of Lines from Zsh Archiwiki
+## END of Lines from Zsh Archiwiki
 
+## BEGIN Lines configured by arita
+alias cat="bat"
+alias ls="exa"
+alias vim="nvim"
+alias vi="nvim"
+alias http="xh"
+alias wget="wget --hsts-file="$XDG_DATA_HOME/wget-hsts""
+alias irssi="irssi --config="$XDG_CONFIG_HOME/irssi/config" --home="$XDG_DATA_HOME/irssi""
+fpath+=${ZDOTDIR:-~}/.zsh_functions # path for alacritty
+source /usr/share/fzf/key-bindings.zsh
+source /usr/share/fzf/completion.zsh
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+## END of lines set by arita
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
