@@ -86,6 +86,7 @@ fpath+=${ZDOTDIR:-~}/.zsh_functions # path for alacritty
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+command -v flux >/dev/null && . <(flux completion zsh)
 ## END of lines set by arita
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
